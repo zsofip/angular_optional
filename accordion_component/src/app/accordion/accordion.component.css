@@ -1,0 +1,25 @@
+.accordion {
+  display: block;
+  max-width: 500px;
+  margin: 3rem;
+}
+
+.accordion-item {
+  display: block;
+  border: solid 1px;
+}
+
+.accordion-item + .accordion-item {
+  border-top: none;
+}
+
+.accordion-item-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px;
+}
+
+.accordion-item-body {
+  padding: 12px;
+}
+
