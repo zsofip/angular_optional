@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { CouponData } from './../../models/coupon-data';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -7,6 +8,11 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./coupon-form.component.css']
 })
 export class CouponFormComponent implements OnInit {
+
+@Output() couponDataEmitter: EventEmitter<CouponData> = new EventEmitter<CouponData>();
+
+@Input() couponData?: CouponData;
+
   couponForm: FormGroup;
 
   constructor(fb: FormBuilder) {
@@ -38,7 +44,10 @@ export class CouponFormComponent implements OnInit {
   }
 
   onSubmit(): void {
-console.log(this.couponForm);
+    console.log('form:', this.couponForm);
+    const couponData: CouponData = this.couponForm.value as CouponData;
+    this.couponDataEmitter.emit(couponData);
+    console.log('emitted data:', couponData);
 
   }
 

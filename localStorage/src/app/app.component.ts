@@ -1,3 +1,5 @@
+import { CouponData } from './models/coupon-data';
+import { LocalStorageService } from './services/local-storage.service';
 import { Component } from '@angular/core';
 
 @Component({
@@ -7,4 +9,20 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'localStorage';
+
+  couponData?: CouponData;
+  newCouponData?: CouponData;
+
+  constructor(private localStService: LocalStorageService) {
+  }
+
+  ngOnInit(): void {
+    this.couponData = JSON.parse(this.localStService.getCouponData("couponData") || '{}')
+  }
+
+  saveNewCoupon(newCouponData: CouponData) {
+    // this.couponData.push(newCouponData);
+    // console.log('arrived data:', this.couponData);
+    this.localStService.saveCouponData("couponData", newCouponData)
+  }
 }

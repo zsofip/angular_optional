@@ -11,7 +11,7 @@
 
         <div class="mb-3">
           <label class="form-label" for="fullNameInput">Full Name</label>
-          <input id="fullNameInput" class="form-control" type="text" name="fullName" placeholder="Full Name"
+          <input id="fullNameInput" class="form-control" type="text" name="fullName" placeholder={{couponData?.fullName}}
             formControlName="fullName" [class.is-invalid]="fullName?.touched && fullName?.invalid" />
           <p *ngIf="fullName?.hasError('required')" class="invalid-feedback">
             Required field!
@@ -24,7 +24,7 @@
         <div class="mb-3">
           <label class="form-label" for="emailInput">Email</label>
           <input id="emailInput" class="form-control" type="email" name="email" placeholder="Email"
-            formControlName="email" [class.is-invalid]="email?.touched && email?.invalid" />
+            formControlName="email" [class.is-invalid]="email?.touched && email?.invalid" />{{couponData?.email}}
           <p *ngIf="email?.hasError('required')" class="invalid-feedback">
             Required field!
           </p>
@@ -35,7 +35,7 @@
 
         <div class="mb-3">
           <label class="form-label" for="phoneNumberInput">Phone number</label>
-          <input id="phoneNumberInput" class="form-control" type="text" name="phoneNumber" placeholder="Phone number"
+          <input id="phoneNumberInput" class="form-control" type="text" name="phoneNumber" placeholder={{couponData?.phoneNumber}}
             formControlName="phoneNumber" [class.is-invalid]="phoneNumber?.touched && phoneNumber?.invalid" />
           <p *ngIf="phoneNumber?.hasError('minlength')" class="invalid-feedback">
             Min 7 characters!
@@ -44,14 +44,14 @@
 
         <div class="mb-3">
           <label class="form-label" for="couponInput">Coupon</label>
-          <input id="couponInput" class="form-control" type="text" name="coupon" placeholder="Coupon"
+          <input id="couponInput" class="form-control" type="text" name="coupon" placeholder={{couponData?.coupon}}
             formControlName="coupon" [class.is-invalid]="coupon?.touched && coupon?.invalid" />
           <p *ngIf="coupon?.hasError('pattern')" class="invalid-feedback">
             Coupon must contain "s345"!
           </p>
         </div>
 
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary">Save</button>
         <div [hidden]="couponForm.valid" id="btn" class="invalid-feedback">
           The form is invalid.
         </div>
