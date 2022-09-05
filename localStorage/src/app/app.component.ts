@@ -21,7 +21,6 @@ export class AppComponent {
   }
 
   saveNewCoupon(newCouponData: CouponData) {
-    // this.couponData.push(newCouponData);
     // console.log('arrived data:', this.couponData);
     this.localStService.saveCouponData("couponData", newCouponData)
   }
