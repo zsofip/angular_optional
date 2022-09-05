@@ -34,8 +34,8 @@ export class CouponFormComponent implements OnInit {
         coupon
       })
     }
-    console.log('stored:', this.storedCouponData);
-    console.log('form:', this.couponForm.value);
+    // console.log('stored:', this.storedCouponData);
+    // console.log('form:', this.couponForm.value);
 
   }
 
