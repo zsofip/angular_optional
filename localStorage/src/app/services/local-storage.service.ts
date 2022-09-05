@@ -15,12 +15,4 @@ export class LocalStorageService {
   public getCouponData(key: string) {
     return localStorage.getItem(key);
   }
-
-  public removeCouponData(key: string) {
-    localStorage.removeItem(key);
-  }
-
-  public clearCouponData() {
-    localStorage.clear();
-  }
 }
