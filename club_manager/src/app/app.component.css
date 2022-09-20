@@ -1,0 +1,31 @@
+#frame {
+  background-color: rgba(143, 143, 143, 0.616);
+  border: none;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+#placeholder {
+  height: 35px
+}
+
+#btn-placeholder {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: rgba(66, 66, 66, 0.3);
+  border: none;
+  margin: 2px;
+}
+
+#sidebar {
+  background-color: rgb(163, 229, 231);
+  width: 200px;
+  height: 100%;
+}
+
+#company-logo {
+  width: 160 px;
+  height: 100px;
+}
+

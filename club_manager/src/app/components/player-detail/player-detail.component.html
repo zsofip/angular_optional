@@ -1,0 +1,26 @@
+<div class="container-fluid">
+
+  <div class="d-flex ">
+    <div class="title me-auto p-2">
+      <h5>{{ currentPlayer.name }}</h5>
+    </div>
+
+    <div  class="button p-2">
+      <button [routerLink]="['/', 'edit-player', currentPlayer.id]" class="btn btn-lg btn-primary">Edit player</button>
+    </div>
+    <div class="button p-2">
+      <button (click)="deletePlayer(currentPlayer)" class="btn btn-lg btn-primary">Delete player</button>
+    </div>
+  </div>
+
+  <div class="m-3">
+    <ul>
+      <li>Shirt Number: {{ currentPlayer.shirtNumber }}</li>
+      <li>Team: {{ currentPlayer.team }}</li>
+      <li>Age: {{ currentPlayer.age }}</li>
+      <li>Wage: {{ currentPlayer.wage }}</li>
+      <li>End of contract date: {{ currentPlayer.contractEnd | date }}</li>
+    </ul>
+  </div>
+
+</div>

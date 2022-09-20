@@ -1,0 +1,72 @@
+<div class="container-fluid">
+
+
+  <div class="m-3">
+    <form [formGroup]="playerForm" (ngSubmit)="onSavePlayer()">
+
+      <div class="d-flex">
+        <div class="title me-auto p-2">
+          <h5>{{ title }}</h5>
+        </div>
+
+        <div  class="button p-2">
+          <button type="submit" class="btn btn-lg btn-primary" [disabled]="playerForm.invalid">Save player</button>
+        </div>
+      </div>
+
+      <input formControlName="id" name="id" type="hidden">
+
+      <div class="mb-3">
+        <label class="form-label" for="nameInput">Name</label>
+        <input id="nameInput" class="form-control" type="text" name="name"
+          formControlName="name" [class.is-invalid]="name.touched && name.invalid" />
+        <p *ngIf="name?.hasError('required')" class="invalid-feedback">
+          Required field!
+        </p>
+      </div>
+      <div class="mb-3">
+        <label class="form-label" for="shirtNumberInput">Shirt Number</label>
+        <input id="shirtNumberInput" class="form-control" type="text" name="shirtNumber"
+          formControlName="shirtNumber" [class.is-invalid]="shirtNumber.touched && shirtNumber.invalid" />
+        <p *ngIf="shirtNumber?.hasError('required')" class="invalid-feedback">
+          Required field!
+        </p>
+      </div>
+      <div class="mb-3">
+        <label class="form-label" for="teamInput">Team</label>
+        <input id="teamInput" class="form-control" type="text" name="team"
+          formControlName="team" [class.is-invalid]="team.touched && team.invalid" />
+        <p *ngIf="team?.hasError('required')" class="invalid-feedback">
+          Required field!
+        </p>
+      </div>
+      <div class="mb-3">
+        <label class="form-label" for="ageInput">Age</label>
+        <input id="ageInput" class="form-control" type="text" name="age"
+          formControlName="age" [class.is-invalid]="age.touched && age.invalid" />
+        <p *ngIf="age?.hasError('required')" class="invalid-feedback">
+          Required field!
+        </p>
+      </div>
+      <div class="mb-3">
+        <label class="form-label" for="wageInput">Wage</label>
+        <input id="wageInput" class="form-control" type="text" name="wage"
+          formControlName="wage" [class.is-invalid]="wage.touched && wage.invalid" />
+        <p *ngIf="wage?.hasError('required')" class="invalid-feedback">
+          Required field!
+        </p>
+      </div>
+      <div class="mb-3">
+        <label class="form-label" for="contractEndInput">End of contract date</label>
+        <input id="contractEndInput" class="form-control" type="text" name="contractEnd"
+          formControlName="contractEnd" [class.is-invalid]="contractEnd.touched && contractEnd.invalid" />
+        <p *ngIf="contractEnd?.hasError('required')" class="invalid-feedback">
+          Required field!
+        </p>
+      </div>
+
+    </form>
+
+  </div>
+
+</div>

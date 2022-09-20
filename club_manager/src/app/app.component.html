@@ -1,0 +1,39 @@
+<div class="container mt-2">
+
+  <header>
+    <div class="d-flex " id="frame">
+      <div class="flex-row align-items-center p-2" id="placeholder">
+        <button type="button" id="btn-placeholder"></button>
+        <button type="button" id="btn-placeholder"></button>
+        <button type="button" id="btn-placeholder"></button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="d-flex">
+      <aside>
+        <div class="flex-column flex-shrink-0 p-3" id="sidebar">
+          <div class="logo">
+            <a routerLink="/">
+              <img src="../assets/images/dummy_logo.jpg" alt="logo" id="company-logo">
+            </a>
+          </div>
+
+          <div class="nav d-grid gap-2 mt-4">
+            <button routerLink="players" class="nav-item btn btn-primary" type="button">Player list</button>
+            <button routerLink="wage" class="btn btn-primary" type="button">Wage module</button>
+          </div>
+        </div>
+      </aside>
+
+      <section class="container-fluid p-4">
+            <router-outlet></router-outlet>
+      </section>
+    </div>
+
+  </main>
+
+
+
+</div>
