@@ -1,7 +1,7 @@
 import { PlayerService } from './../../services/player.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Player } from 'src/app/models/player';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-player-list',
@@ -10,11 +10,15 @@ import { Router } from '@angular/router';
 })
 export class PlayerListComponent implements OnInit {
 
-  players!: Player[];
+  @Input() groupedByTeams?: boolean;
+  @Input() items!: Player[];
 
-  constructor(private playerService: PlayerService, private router: Router) {
-    this.players = this.playerService.getLocalPlayers("players");
-  }
+
+  constructor(
+    private playerService: PlayerService,
+    private router: Router,
+    private route: ActivatedRoute
+    ) {}
 
   ngOnInit(): void {
   }
@@ -22,8 +26,7 @@ export class PlayerListComponent implements OnInit {
   deletePlayer(player: Player) {
     this.playerService.removePlayer(player);
     this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
-      this.router.navigate(['/', 'players']);
+      this.router.navigate(['/', this.route.routeConfig?.path]);
     });
   }
-
 }

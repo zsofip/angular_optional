@@ -26,7 +26,7 @@
       </div>
       <div class="mb-3">
         <label class="form-label" for="shirtNumberInput">Shirt Number</label>
-        <input id="shirtNumberInput" class="form-control" type="text" name="shirtNumber"
+        <input id="shirtNumberInput" class="form-control" type="number" name="shirtNumber"
           formControlName="shirtNumber" [class.is-invalid]="shirtNumber.touched && shirtNumber.invalid" />
         <p *ngIf="shirtNumber?.hasError('required')" class="invalid-feedback">
           Required field!
@@ -42,7 +42,7 @@
       </div>
       <div class="mb-3">
         <label class="form-label" for="ageInput">Age</label>
-        <input id="ageInput" class="form-control" type="text" name="age"
+        <input id="ageInput" class="form-control" type="number" name="age"
           formControlName="age" [class.is-invalid]="age.touched && age.invalid" />
         <p *ngIf="age?.hasError('required')" class="invalid-feedback">
           Required field!
@@ -50,7 +50,7 @@
       </div>
       <div class="mb-3">
         <label class="form-label" for="wageInput">Wage</label>
-        <input id="wageInput" class="form-control" type="text" name="wage"
+        <input id="wageInput" class="form-control" type="number" name="wage"
           formControlName="wage" [class.is-invalid]="wage.touched && wage.invalid" />
         <p *ngIf="wage?.hasError('required')" class="invalid-feedback">
           Required field!
@@ -58,7 +58,7 @@
       </div>
       <div class="mb-3">
         <label class="form-label" for="contractEndInput">End of contract date</label>
-        <input id="contractEndInput" class="form-control" type="text" name="contractEnd"
+        <input id="contractEndInput" class="form-control" type="date" name="contractEnd"
           formControlName="contractEnd" [class.is-invalid]="contractEnd.touched && contractEnd.invalid" />
         <p *ngIf="contractEnd?.hasError('required')" class="invalid-feedback">
           Required field!

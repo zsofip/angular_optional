@@ -1,0 +1,24 @@
+<div class="row">
+  <form [formGroup]="wageForm" (keydown.enter)="onSubmit()">
+    <div class="row">
+      <div class="col">
+        <div class="mb-3">
+          <input id="currentMoneyInput" class="form-control" type="number" name="currentMoney"
+            formControlName="currentMoney" placeholder="Input: Club current money" />
+        </div>
+      </div>
+      <div class="col">
+        <div class="mb-3">
+          <input id="monthlyIncomeInput" class="form-control" type="number" name="monthlyIncome"
+            formControlName="monthlyIncome"  placeholder="Input: Club monthly income"/>
+        </div>
+      </div>
+    </div>
+  </form>
+
+  <app-info-box
+  [finance]="finance"
+  [currentMoney]="wageForm.value.currentMoney"
+  [monthlyIncome]="wageForm.value.monthlyIncome">
+</app-info-box>
+</div>

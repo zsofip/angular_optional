@@ -1,5 +1,13 @@
-<div>
-  <h5>title</h5>
-  <p>data1</p>
-  <p>data2</p>
+<div class="p-3 border m-1">
+  <h5 class="mb-4">{{ title }}</h5>
+  <ng-container *ngIf="finance">
+    <h5 class="mb-3"> Current money: {{ currentMoney }}</h5>
+    <h5 class="mb-3"> Current monthly income: {{ monthlyIncome }} </h5>
+  </ng-container>
+  <h5 class="mb-3">{{ value1 }}
+    <span>{{ stat ? numberOfPlayers : wg ? highestWagePlName : expectedMoney }}</span>
+  </h5>
+  <h5 class="mb-3">{{ value2 }}
+    <span>{{ stat ? summaWage : wg ? highestWage : stability }}</span>
+  </h5>
 </div>

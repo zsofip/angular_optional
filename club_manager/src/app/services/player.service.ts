@@ -6,8 +6,8 @@ import { Player } from '../models/player';
 })
 export class PlayerService {
 
-  initialPlayers: Player[];
-  players!: Player[];
+  initialPlayers: Player[]; // needed only for mocking purposes, an instant set of players until the localStorage is empty
+  players: Player[] = this.getLocalPlayers("players");
 
   constructor() {
     this.initialPlayers = [
@@ -49,11 +49,11 @@ export class PlayerService {
       },
       {
         id: 5,
-        name: 'Mock Player',
-        shirtNumber: 22,
+        name: 'Bread Pitt',
+        shirtNumber: 5,
         team: 'Green',
-        age: 23,
-        wage: 2200,
+        age: 35,
+        wage: 4200,
         contractEnd: new Date(2022, 12, 31)
       },
     ]
@@ -63,25 +63,30 @@ export class PlayerService {
     return this.players;
   }
 
-  public getLocalPlayer(id: number) {
-    this.players = this.getLocalPlayers("players");
+  public getLocalPlayerById(id: number) {
     const index = this.players.findIndex(item => item.id == id);
     return this.players[index];
   }
 
   public addNewPlayer(player: Player) {
-    this.players = this.getLocalPlayers("players");
     player.id = this.players.length + 1;
     this.players.push(player);
-    console.log('players:', this.players);
     localStorage.setItem("players", JSON.stringify(this.players));
   }
 
   public saveLocalPlayer(player: Player) {
-    this.players = this.getLocalPlayers("players");
     const index = this.players.findIndex(item => item.id == player.id);
     this.players.splice(index, 1, player);
     localStorage.setItem("players", JSON.stringify(this.players));
+  }
+
+  public getPlayersGroupedByTeams() {
+    return this.players.reduce((groups, item) => {
+      const key = item.team as keyof Player;
+          groups[key] = groups[key] || [];
+          groups[key].push(item);
+          return groups;
+      }, Object.create(null));
   }
 
   public saveLocalPlayers(key: string, value: Player[]) {
@@ -89,10 +94,34 @@ export class PlayerService {
   }
 
   public removePlayer(player: Player): void {
-    this.players = this.getLocalPlayers("players");
     const index = this.players.findIndex( item => item.id === player.id );
     this.players.splice(index, 1);
     localStorage.setItem("players", JSON.stringify(this.players));
   }
 
+  public getNumberOfPlayers() {
+    return this.players.length;
+  }
+
+  public getSummaWage() {
+    return this.players.reduce((acc, obj) => acc + obj.wage, 0);
+  }
+
+  public getHighestWagePlayer() {
+    const richPlayer = this.players.reduce((prev, curr) => (prev.wage > curr.wage) ? prev : curr);
+    return richPlayer.name;
+  }
+
+  public getHighestWage() {
+    const richPlayer = this.players.reduce((prev, curr) => (prev.wage > curr.wage) ? prev : curr);
+    return richPlayer.wage;
+  }
+
+  public getWagesGroupedByTeams(team: any) {
+    return team.reduce((acc: any, obj: { wage: any; }) => acc + obj.wage, 0);
+  }
+
+  public getExpectedMoney() {
+
+  }
 }

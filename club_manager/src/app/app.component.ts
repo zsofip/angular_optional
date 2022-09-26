@@ -10,6 +10,12 @@ import { PlayerService } from './services/player.service';
 export class AppComponent {
   title = 'club_manager';
 
+  // The initial players are needed only for a faster mocking,
+  // so that we don't need to add some before trying other functions.
+  // If there's no players array in localStorage yet, or it is empty,
+  // then we have some players prepared.
+  // After a server database is in use, this function can be deleted.
+
   initialPlayers: Player[];
   players!: Player[];
 

@@ -11,6 +11,9 @@ import { PlayerDetailComponent } from './components/player-detail/player-detail.
 import { InfoBoxComponent } from './components/info-box/info-box.component';
 import { PlayerListComponent } from './components/player-list/player-list.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { TeamBoxComponent } from './components/team-box/team-box.component';
+import { PlayersHeaderNavComponent } from './components/players-header-nav/players-header-nav.component';
+import { ClubFinanceComponent } from './components/club-finance/club-finance.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +24,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     EditPlayerComponent,
     PlayerDetailComponent,
     InfoBoxComponent,
-    PlayerListComponent
+    PlayerListComponent,
+    TeamBoxComponent,
+    PlayersHeaderNavComponent,
+    ClubFinanceComponent
   ],
   imports: [
     BrowserModule,

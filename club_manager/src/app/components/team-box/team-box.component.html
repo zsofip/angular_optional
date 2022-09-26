@@ -1,0 +1,14 @@
+
+<div class="p-3 border">
+  <div *ngFor="let team of teams | keyvalue; let i = index">
+    <h4 class="mb-5">Team: {{team.key}}</h4>
+
+    <h5 class="mb-3">Team full wage: {{ getTeamWage(team.value) }}</h5>
+
+    <h5 class="mb-3">Team players:</h5>
+      <app-player-list [items]="team.value" [groupedByTeams]="groupedByTeams"></app-player-list>
+
+  </div>
+
+</div>
+

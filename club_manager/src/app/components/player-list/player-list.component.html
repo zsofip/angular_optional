@@ -1,42 +1,29 @@
-<div class="container-fluid">
-
-  <div class="d-flex flex-row justify-content-between">
-      <div class="title">
-        <h4>Player list page</h4>
-      </div>
-
-      <div class="button">
-        <button [routerLink]="['/', 'edit-player', 0]" class="btn btn-lg btn-primary">Add player</button>
-      </div>
-  </div>
-
-  <div class="mt-4">
-    <table class="table table-striped text-center">
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Shirt Number</th>
-          <th>Team</th>
-          <th>Age</th>
-          <th>Wage</th>
-          <th>End of contract date</th>
-          <th>Action icons</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let player of players; let i = index">
-          <td>{{ player.name }}</td>
-          <td>{{ player.shirtNumber }}</td>
-          <td>{{ player.team }}</td>
-          <td>{{ player.age }}</td>
-          <td>{{ player.wage }}</td>
-          <td>{{ player.contractEnd | date }}</td>
-          <td>
-            <a [routerLink]="['/', 'player-detail', player.id]">👁‍🗨</a>
-            <a (click)="deletePlayer(player)">❌</a>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+<div class="mt-4 mb-5">
+  <table class="table table-striped text-center">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Shirt Number</th>
+        <th *ngIf="!groupedByTeams">Team</th>
+        <th>Age</th>
+        <th>Wage</th>
+        <th>End of contract date</th>
+        <th>Action icons</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of items let i = index">
+        <td>{{ item.name }}</td>
+        <td>{{ item.shirtNumber }}</td>
+        <td *ngIf="!groupedByTeams">{{ item.team }}</td>
+        <td>{{ item.age }}</td>
+        <td>{{ item.wage }}</td>
+        <td>{{ item.contractEnd | date }}</td>
+        <td>
+          <a [routerLink]="['/', 'player-detail', item.id]">👁‍🗨</a>
+          <a (click)="deletePlayer(item)">❌</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </div>

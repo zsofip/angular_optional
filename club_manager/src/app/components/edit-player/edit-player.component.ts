@@ -19,13 +19,13 @@ export class EditPlayerComponent implements OnInit {
 
   constructor(private router: Router, private route: ActivatedRoute, private playerService: PlayerService, fb: FormBuilder) {
     this.playerForm = fb.group({
-      id: [''],
+      id: [Number],
       name: ['', [Validators.required]],
-      shirtNumber: ['', [Validators.required]],
+      shirtNumber: [Number, [Validators.required]],
       team: ['', [Validators.required]],
-      age: ['', [Validators.required]],
-      wage: ['', [Validators.required]],
-      contractEnd: ['', [Validators.required]],
+      age: [Number, [Validators.required]],
+      wage: [Number, [Validators.required]],
+      contractEnd: [Date, [Validators.required]],
     });
 
     this.currentId = route.snapshot.params['id'];
@@ -36,7 +36,7 @@ export class EditPlayerComponent implements OnInit {
       this.currentPlayer = this.newPlayer;
       this.title = 'Add player page';
     } else {
-      this.currentPlayer = this.playerService.getLocalPlayer(this.currentId);
+      this.currentPlayer = this.playerService.getLocalPlayerById(this.currentId);
       this.title = this.currentPlayer.name;
 
       const { id, name, shirtNumber, team, age, wage, contractEnd } = this.currentPlayer;

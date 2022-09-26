@@ -19,7 +19,7 @@ export class PlayerDetailComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.currentPlayer = this.playerService.getLocalPlayer(this.currentId);
+    this.currentPlayer = this.playerService.getLocalPlayerById(this.currentId);
   }
 
   deletePlayer(currentPlayer: Player) {
