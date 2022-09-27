@@ -16,8 +16,6 @@ export class TeamBoxComponent implements OnInit {
 
   constructor(private playerService: PlayerService) {
     this.teams = this.playerService.getPlayersGroupedByTeams();
-    // this.teamWage = this.playerService.getWagesGroupedByTeams();
-    // this.teams = this.playerService.getLocalPlayersByTeam('Green')
   }
 
   ngOnInit(): void {

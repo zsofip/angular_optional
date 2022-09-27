@@ -121,7 +121,4 @@ export class PlayerService {
     return team.reduce((acc: any, obj: { wage: any; }) => acc + obj.wage, 0);
   }
 
-  public getExpectedMoney() {
-
-  }
 }

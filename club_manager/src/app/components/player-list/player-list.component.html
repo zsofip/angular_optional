@@ -21,7 +21,7 @@
         <td>{{ item.contractEnd | date }}</td>
         <td>
           <a [routerLink]="['/', 'player-detail', item.id]">👁‍🗨</a>
-          <a (click)="deletePlayer(item)">❌</a>
+          <a class="ml-4" (click)="deletePlayer(item)">❌</a>
         </td>
       </tr>
     </tbody>

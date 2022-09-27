@@ -36,7 +36,7 @@ export class InfoBoxComponent implements OnInit {
     this.highestWagePlName = this.playerService.getHighestWagePlayer();
     this.highestWage = this.playerService.getHighestWage();
 
-    this.expectedMoney = (this.currentMoney || 0) + (this.monthlyIncome || 0) - this.playerService.getSummaWage();
+    this.expectedMoney = (this.currentMoney || 0) + (this.monthlyIncome || 0) - this.summaWage;
   }
 
   ngOnInit(): void {
@@ -57,11 +57,11 @@ export class InfoBoxComponent implements OnInit {
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes['currentMoney'] || changes['monthlyIncome']) {
-      this.expectedMoney = (this.currentMoney || 0) + (this.monthlyIncome || 0) - this.playerService.getSummaWage();
-      if ((this.monthlyIncome || 0) >= this.playerService.getSummaWage()) {
+      this.expectedMoney = (this.currentMoney || 0) + (this.monthlyIncome || 0) - this.summaWage;
+      if ((this.monthlyIncome || 0) >= this.summaWage) {
         this.stability = "The club is financially stable"
       } else {
-        this.runOut = Math.floor((this.currentMoney || 0) / (this.playerService.getSummaWage() - (this.monthlyIncome || 0)));
+        this.runOut = Math.floor((this.currentMoney || 0) / (this.summaWage - (this.monthlyIncome || 0)));
         this.stability = `The club’s financial reserves run out after ${this.runOut} month`
       }
     }
